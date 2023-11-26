@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'weather-wise-db-test'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+    ports:
+      - "${PORT_MAPPING_DB}"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  frontend:
+    build: 
+      context: ./weather-wise-frontend
+      target: dev
+    volumes:
+      - ./weather-wise-frontend:/app
+      - /app/node_modules
+    ports:
+      - "${PORT_MAPPING_FRONT}"
+    environment:
+      - NODE_ENV=${NODE_ENV}
+
+  backend:
+    build: ./weather-wise-backend
+    ports:
+      - "${PORT_MAPPING_BACK}"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
