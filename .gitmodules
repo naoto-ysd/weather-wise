@@ -1,0 +1,6 @@
+[submodule "weather-wise-frontend"]
+	path = weather-wise-frontend
+	url = https://github.com/naoto-ysd/weather-wise-frontend
+[submodule "weather-wise-backend"]
+	path = weather-wise-backend
+	url = https://github.com/naoto-ysd/weather-wise-backend
