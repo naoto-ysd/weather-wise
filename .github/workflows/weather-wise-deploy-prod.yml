@@ -7,7 +7,7 @@ on:
 env:
   AWS_REGION: ap-northeast-1
   ECR_REPOSITORY: weather-wise-front
-  ECS_SERVICE: test-service
+  ECS_SERVICE: weather-wise-service
   ECS_CLUSTER: weather-wise-web
   ECS_TASK_DEFINITION: task-definition.json
   CONTAINER_NAME: test-container
