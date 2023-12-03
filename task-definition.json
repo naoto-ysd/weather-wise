@@ -1,15 +1,22 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:302246904757:task-definition/test-task:8",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:302246904757:task-definition/test-task:10",
     "containerDefinitions": [
         {
             "name": "test-container",
-            "image": "302246904757.dkr.ecr.ap-northeast-1.amazonaws.com/weather-wise-front:b887eaff68fdb1668d44c68c5eb3bf61812127e1",
+            "image": "302246904757.dkr.ecr.ap-northeast-1.amazonaws.com/weather-wise-front:b68e3dd2c1a0b0b3d5d68436e9a1f6cb48b39a83",
             "cpu": 0,
             "portMappings": [
                 {
                     "name": "test-container-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                },
+                {
+                    "name": "test-container-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -33,7 +40,7 @@
     "family": "test-task",
     "executionRoleArn": "arn:aws:iam::302246904757:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 8,
+    "revision": 10,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -76,7 +83,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-12-03T05:43:02.260Z",
+    "registeredAt": "2023-12-03T06:55:52.410Z",
     "registeredBy": "arn:aws:iam::302246904757:user/yoshida",
     "tags": []
 }
