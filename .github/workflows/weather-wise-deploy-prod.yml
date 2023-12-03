@@ -45,9 +45,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        echo "test"
-        echo ${{ steps.login-ecr.outputs.registry }}
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ../../weather-wise-frontend/Dockerfile
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG weather-wise-frontend/Dockerfile
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
